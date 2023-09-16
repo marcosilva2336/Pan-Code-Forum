@@ -1,0 +1,626 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import "react-toastify/dist/ReactToastify.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .3s linear;
+}
+
+body {
+    background: #f6f6f9;
+    font-family: 'Rubik', sans-serif;
+}
+
+h2 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+::-webkit-scrollbar {
+    width: .4rem;
+    height: .3rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b4b4b3;
+    border-radius: 1rem;
+}
+
+.center {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 3%;
+    max-width: 1100px;
+}
+
+.header {
+    padding: 14px 0;
+    background: white;
+    border: 2px solid rgb(230, 230, 230);
+    box-shadow: 0 0.5rem 1rem rgba(132, 139, 200, 0.18);
+}
+
+.header_logo {
+    width: 50%;
+    font-weight: 600;
+}
+
+.header_loginForm {
+    width: 50%;
+    text-align: right;
+}
+
+
+.header_loginForm input[type=text],
+.header_loginForm input[type=password] {
+    width: 180px;
+    margin-right: 5px;
+    height: 20px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+    border-radius: 3px;
+}
+
+.header_loginForm input[type=submit] {
+    background: #0095f6;
+    color: white;
+    border: 0;
+    height: 20px;
+    padding: 0px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.header_loginForm a {
+    margin-left: 4px;
+    font-size: 14px;
+}
+
+.header_loginForm a:hover {
+    text-decoration: none;
+}
+
+
+.header_logadoInfo {
+    text-align: right;
+    width: 100%;
+    font-weight: 500;
+}
+
+.header_logadoInfo a {
+    margin: 0 10px;
+    background: #0095f6;
+    color: white;
+    text-decoration: none;
+    padding: 3px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+
+.modalCriarConta {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.formCriarConta {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    width: 60%;
+    max-width: 700%;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    border-radius: .3rem;
+}
+
+.formCriarConta input[type=text],
+.formCriarConta input[type=password] {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-radius: .3rem;
+    border: 1px solid #ccc;
+}
+
+.formCriarConta input[type=submit] {
+    width: 20%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-radius: .3rem;
+    border: 1px solid #f6f6f9;
+    background: #0095f6;
+    color: white;
+    cursor: pointer;
+}
+
+.close-modal-criar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 10px;
+    cursor: pointer;
+    z-index: 1;
+    background-color: #0095f6;
+}
+
+.modalUpload {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.formUpload {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    width: 60%;
+    max-width: 700%;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    border-radius: .3rem;
+}
+
+.formUpload input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-radius: .3rem;
+    border: 1px solid #ccc;
+}
+
+.formUpload input[type=submit] {
+    width: 20%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-radius: .3rem;
+    border: 1px solid #f6f6f9;
+    background: #0095f6;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+
+
+
+
+.postSingle {
+    padding-bottom: 50px;
+    background-color: white;
+    max-width: 650px;
+    margin: 10px auto;
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    border-radius: .3rem;
+    position: relative;
+}
+
+
+
+.postSingle img {
+    width: 100%;
+    border-radius: .2rem;
+}
+
+.postSingle p {
+    padding: 10px;
+    font-weight: 600;
+}
+
+.postSingle form {
+    padding: 20px;
+}
+
+.postSingle textarea {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: .3rem;
+}
+
+
+.postSingle input[type=submit] {
+    background: #4169e1;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    padding: 8px 10px;
+    border-radius: 0.3rem;
+    transition: background .9s;
+}
+
+.postSingle input[type=submit]:hover {
+    background: #0095f6;
+}
+
+.coments {
+    margin-left: 9px;
+}
+
+.coments h2 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    color: rgba(0, 0, 0, 0.15);
+    font-size: 18px;
+    padding: 8px 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+.coment-single p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sidebarNotification {
+    padding: 20px 15px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1rem 2rem rgba(132, 139, 200, 0.1);
+    border-radius: .3rem;
+    margin: 10px 15px;
+    max-width: 300px;
+    float: right;
+}
+
+
+.sidebarNotification p {
+    font-size: 12px;
+    color: #333;
+    font-weight: bold;
+}
+
+
+.recentPosts h3 {
+    font-size: 18px;
+    color: #555;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.postCard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .3rem;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    max-width: 200px;
+}
+
+.postCard:hover {
+    background-color: #f6f6f9;
+}
+
+.postCard img {
+    width: 60px;
+    height: 60px;
+    border-radius: .2rem;
+}
+
+.olderPostCard p {
+    flex: 1;
+    font-size: 14px;
+    color: #555;
+}
+
+@keyframes slideOutLeftFade {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.popup {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    padding: 15px;
+    background-color: #ccc;
+    color: black;
+    border-radius: .2rem;
+    z-index: 1000;
+    animation: slideOutLeftFade 3s forwards 5s;
+    transition: .3s linear;
+}
+
+.greenToast {
+    top: -15px !important;
+    top: -15px !important;
+    background-color: rgb(54, 241, 54) !important;
+    color: white !important;
+    border-radius: 7px !important;
+}
+
+.redToast {
+    top: -15px !important;
+    left: 15px !important;
+    border-radius: 7px !important;
+}
+
+.modalLogin {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.formLogin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px 40px;
+    width: 60%;
+    max-width: 700%;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    border-radius: .3rem;
+}
+
+.formLogin input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    border-radius: .3rem;
+    border: 1px solid #ccc;
+}
+
+
+.formLogin input[type=submit] {
+    width: 30%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-radius: .3rem;
+    border: 1px solid #f6f6f9;
+    background: #0095f6;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.formLogin a {
+    display: block;
+    text-decoration: none;
+    color: #4d4646;
+}
+
+.formLogin a:hover {
+    text-decoration: underline;
+}
+
+.header_icons {
+    position: absolute;
+    top: 7px;
+    right: 50px;
+    cursor: pointer;
+    color: #000;
+    transition: all 0.5s;
+}
+
+.header_icons:hover {
+    color: #646360;
+    transform: scale(1.1);
+}
+
+.header_dark {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    cursor: pointer;
+    color: #000;
+    transition: all 0.5s ease;
+}
+
+.header_dark:hover { 
+    color: #646360;
+    transform: scale(1.1)
+}
+
+.footer {
+    width: 100%;
+    border-top: 1px solid #adadad;
+    color: black;
+    padding: 5px 0;
+    font-weight: 500;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark-theme body{
+   background:  #010202;
+}
+
+.dark-theme .header {
+    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.4);
+    background: #181a1e;
+    border: none;
+    color: #f5f5f5;
+}
+
+.dark-theme .postSingle{
+    color: #f5f5f5;
+    background-color: #000000;
+    box-shadow: 0 1rem 2rem rgba(209, 210, 211, 0.18);
+    filter: saturate(120%) contrast(110%) brightness(105%);
+    border: 0.5px solid #6d6d6d;
+}
+
+.dark-theme .postSingle textarea {
+    background-color: #0f0f0f;
+    color: #f5f5f5;
+}
+
+.dark-theme .postSingle input[type = "submit"]{
+    background: seashell ;
+    color: #000000;
+    transition: ease background .5s;
+}
+
+.dark-theme .postSingle input[type = "submit"]:hover{
+    background: #181a1e;
+    color: #f5f5f5;
+    
+}
+
+.dark-theme .coments h2{
+    color: #555;
+    border-bottom: 1px solid #555 ;
+}
+
+.dark-theme .header_dark {
+    color: #fff;
+}
+
+.dark-theme .footer{
+   color:  #f5f5f5;
+
+}
+
+.dark-theme .sidebarNotification{
+    background: #000;
+    box-shadow: 0 0.5rem 1rem rgba(209, 210, 211, 0.18);
+    
+}
+ .dark-theme .postCard {
+    border: 1px solid #f5f5f5;
+ }
+.dark-theme .recentPosts h3{
+    color: #f5f5f5;
+    border-bottom: 1px solid #dadada;
+}
+
+.dark-theme .sidebarNotification p {
+    color: #f5f5f5;
+}
+
+
+@media (max-width: 768px) {
+
+    .header_logo,
+    .header_loginForm {
+        width: 100%;
+        text-align: center;
+    }
+
+    .formCriarConta,
+    .formUpload,
+    .formLogin {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .sidebarNotification {
+        display: none;
+    }
+
+}
+
+/* Responsivo para dispositivos móveis */
+@media (max-width: 480px) {
+
+    .header{
+        padding: 15px;
+    }
+    .header_logadoInfo{
+     margin-top: 10px;
+    }
+    .center {
+        flex-direction: column;
+        padding: 0 4%;
+    }
+
+    .formCriarConta input[type=text],
+    .formCriarConta input[type=password],
+    .formUpload input,
+    .formLogin input {
+        width: 100%;
+    }
+
+    .header_loginIcon {
+        width: 30px;
+    }
+
+    .postSingle {
+        margin: 10px 5px;
+    }
+
+    .header_dark{
+        right: 325px;
+        top:20px;
+    }
+
+    .greenToast , .redToast {
+        margin-top: 30px;
+       width: 200px;
+       left: 170px !important;
+    }
+}
+
+
+
+@media (max-width: 320px) {
+    .center {
+        padding: 10px 5px;
+    }
+
+    .header_logadoInfo {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
